@@ -1,0 +1,16 @@
+name: rabbitmq-cluster-operator
+description: "RabbitMQ cluster operator deployment"
+arguments:
+  service: true
+  deployment:
+    serviceDomains:
+    - bento
+    environments:
+    - staging
+    slack: "#qss-notifications"
+    repoName: rabbitmq-cluster-operator
+    namespace: rabbitmq-cluster-operator
+    sourcePath: .
+    manifestPath: rabbitmq-cluster-operator.jsonnet
+modules:
+  - name: github.com/getoutreach/stencil-pipeline
