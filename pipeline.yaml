@@ -1,0 +1,25 @@
+
+name: rabbitmq-cluster-operator
+repo: getoutreach/rabbitmq-cluster-operator
+pipelineTemplate: custom_segments
+deploymentSegments:
+  - name: 'white'
+  - name: staging1a
+    groupType: MEMBER
+    parentSegmentName: 'white'
+  - name: staging2b
+    groupType: MEMBER
+    parentSegmentName: 'white'
+notificationMethods:
+  - type: slack-channel
+    slackChannel: '#qss-notifications'
+    notifications:
+      - Promote
+      - WorkflowPassed
+      - WorkflowFailed
+# To change a workflow add your keys to the relevant block
+# for the channel workflow combination you want to change.
+#
+# Then re-run stencil, this will re-generate the workflow
+# replacing the default keys with your values.
+workflows:

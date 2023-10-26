@@ -1,0 +1,15 @@
+version: v1.34.0
+modules:
+    - name: github.com/getoutreach/stencil-discovery
+      url: https://github.com/getoutreach/stencil-discovery
+      version: v1.6.0
+    - name: github.com/getoutreach/stencil-pipeline
+      url: https://github.com/getoutreach/stencil-pipeline
+      version: v1.1.0
+files:
+    - name: argocd/rabbitmq-cluster-operator.jsonnet
+      template: argocd/app.jsonnet.tpl
+      module: github.com/getoutreach/stencil-pipeline
+    - name: pipeline.yaml
+      template: pipeline.yaml.tpl
+      module: github.com/getoutreach/stencil-pipeline
